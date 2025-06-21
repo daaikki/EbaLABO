@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個別指導塾 エバラボ - 君の可能性を宇宙のように広げよう</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #0f172a 0%, #1a202c 100%); /* Deep space gradient */
+            color: #e2e8f0; /* Light gray text */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem; /* Increased padding */
+        }
+        .section-title {
+            font-size: 2.8rem; /* Slightly larger */
+            font-weight: 800; /* Bolder */
+            color: #818cf8; /* Light purple for titles */
+            text-align: center;
+            margin-bottom: 3.5rem; /* More space */
+            position: relative;
+            padding-bottom: 1.2rem;
+            letter-spacing: 0.05em; /* Subtle letter spacing */
+            text-shadow: 0 0 10px rgba(129, 140, 248, 0.5); /* Soft glow */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px; /* Wider underline */
+            height: 5px; /* Thicker underline */
+            background-color: #fde047; /* Yellow accent */
+            border-radius: 9999px;
+            box-shadow: 0 0 15px rgba(253, 224, 71, 0.7); /* Glow for underline */
+        }
+        .star-icon {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+            fill: currentColor;
+            margin-right: 0.5em;
+        }
+        /* More dynamic star background for hero */
+        .hero-background {
+            background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236b7280' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 0h1v1H0zm2 2h1v1H2zm4 4h1v1H6zm2 2h1v1H8zm-4 4h1v1H4zm2-2h1v1H6zm4-4h1v1h-1zm-2-2h1v1H8zm-6 4h1v1H2zm2-2h1v1H4zm6 0h1v1h-1zm2 2h1v1h-1zm0-4h1v1h-1zm0-8h1v1h-1zm-4 0h1v1h-1zm-8 0h1v1H0zm4 2h1v1H4zm0 4h1v1H4zm-4 4h1v1H0zm8 0h1v1H8zm-4 2h1v1H4zm-2-2h1v1H2zm-2-2h1v1H0z'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 24px 24px;
+            animation: starryBackground 60s linear infinite; /* Slow, continuous scroll */
+        }
+
+        @keyframes starryBackground {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        /* Twinkling stars in hero */
+        @keyframes twinkling {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        /* Fade-in on scroll effect */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <!-- Header -->
+    <header class="bg-gray-800 bg-opacity-80 backdrop-blur-sm shadow-lg py-4 fixed w-full z-10 rounded-b-xl border-b border-indigo-700">
+        <div class="container flex justify-between items-center">
+            <div class="text-3xl font-extrabold text-indigo-400 flex items-center">
+                <svg class="star-icon text-yellow-300 transform rotate-45" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0L9.19 8.27L0 9.09L6.91 14.73L4.73 24L12 19.5L19.27 24L17.09 14.73L24 9.09L14.81 8.27L12 0Z"/>
+                </svg>
+                エバラボ
+            </div>
+            <nav>
+                <ul class="flex space-x-6 text-lg font-medium">
+                    <li><a href="#concept" class="hover:text-yellow-300 transition-colors duration-300">コンセプト</a></li>
+                    <li><a href="#courses" class="hover:text-yellow-300 transition-colors duration-300">対象学年</a></li>
+                    <li><a href="#pricing" class="hover:text-yellow-300 transition-colors duration-300">料金</a></li>
+                    <li><a href="#access" class="hover:text-yellow-300 transition-colors duration-300">アクセス</a></li>
+                    <li><a href="#contact" class="hover:text-yellow-300 transition-colors duration-300 bg-indigo-600 px-5 py-2.5 rounded-full hover:bg-indigo-700 transition-all duration-300 shadow-md">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="hero-background relative h-screen flex items-center justify-center text-center px-4 py-20 overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-40"></div>
+            <div class="relative z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6 animate-pulse" style="animation-duration: 2s;">
+                    <span class="text-yellow-300">君の可能性</span>を宇宙のように広げよう
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto drop-shadow-md">
+                    エバラボは、大阪で小中高生一人ひとりの「個性」と「可能性」を最大限に引き出す個別指導塾です。
+                    苦手克服から得意伸長、そして自立学習へと導きます。
+                </p>
+                <a href="#contact" class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
+                    無料学習相談に申し込む
+                </a>
+            </div>
+            <!-- Animated stars (CSS) -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute bg-white rounded-full opacity-70 star" style="width: 2px; height: 2px; top: 10%; left: 20%; animation: twinkling 3s infinite alternate;"></div>
+                <div class="absolute bg-white rounded-full opacity-70 star" style="width: 3px; height: 3px; top: 30%; left: 80%; animation: twinkling 4s infinite reverse;"></div>
+                <div class="absolute bg-white rounded-full opacity-70 star" style="width: 2px; height: 2px; top: 50%; left: 5%; animation: twinkling 2.5s infinite;"></div>
+                <div class="absolute bg-white rounded-full opacity-70 star" style="width: 3px; height: 3px; top: 70%; left: 60%; animation: twinkling 3.5s infinite alternate;"></div>
+                <div class="absolute bg-white rounded-full opacity-70 star" style="width: 2px; height: 2px; top: 90%; left: 40%; animation: twinkling 2s infinite reverse;"></div>
+                <div class="absolute bg-white rounded-full opacity-70 star" style="width: 1px; height: 1px; top: 25%; left: 50%; animation: twinkling 3.2s infinite;"></div>
+                <div class="absolute bg-white rounded-full opacity-70 star" style="width: 4px; height: 4px; top: 60%; left: 15%; animation: twinkling 4.5s infinite alternate;"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 bg-gray-800 fade-in-section">
+            <div class="container text-center">
+                <h2 class="section-title">エバラボが目指すもの</h2>
+                <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-300">
+                    エバラボは、生徒一人ひとりが持つ「無限の可能性」を信じています。
+                    私たちは、単に成績を上げるだけでなく、自ら考え、行動し、未来を切り開く力を育むことを使命としています。
+                    まるで宇宙の星々がそれぞれ異なる輝きを放つように、
+                    君だけの才能をエバラボで見つけ、最大限に輝かせましょう。
+                </p>
+            </div>
+        </section>
+
+        <!-- Concept Section -->
+        <section id="concept" class="py-20 md:py-32 bg-gray-900 fade-in-section">
+            <div class="container">
+                <h2 class="section-title">エバラボの指導コンセプト</h2>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Concept 1 -->
+                    <div class="bg-gray-800 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
+                        <div class="text-6xl text-yellow-400 mb-6 drop-shadow-md">🚀</div> <!-- Rocket emoji -->
+                        <h3 class="text-3xl font-bold text-white mb-4">徹底した「弱点克服」と「得意伸長」</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            生徒一人ひとりの学力と学習状況を詳細に分析し、オーダーメイドのカリキュラムを作成します。苦手科目の克服はもちろん、得意科目をさらに伸ばすための発展的な内容にも対応。診断テストから個別進捗管理、定期的な面談を通じて、着実に目標達成へと導きます。
+                        </p>
+                    </div>
+                    <!-- Concept 2 -->
+                    <div class="bg-gray-800 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
+                        <div class="text-6xl text-green-400 mb-6 drop-shadow-md">💡</div> <!-- Lightbulb emoji -->
+                        <h3 class="text-3xl font-bold text-white mb-4">「自立学習」を育むコーチング型指導</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            単に知識を教えるだけでなく、生徒が自分で学習計画を立て、実行し、振り返る力を育むことに重点を置きます。学習コーチング、目標設定のサポート、そして充実した質問対応を通じて、自ら学ぶ喜びと能力を養います。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="py-20 md:py-32 bg-gray-800 fade-in-section">
+            <div class="container text-center">
+                <h2 class="section-title">対象学年と指導科目</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-700 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                        <h3 class="text-3xl font-bold text-white mb-4">小学生</h3>
+                        <p class="text-lg text-gray-200">基礎学力の定着、学習習慣の確立、中学受験準備。</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
+                            <li>算数</li>
+                            <li>国語</li>
+                            <li>理科</li>
+                            <li>社会</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-700 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                        <h3 class="text-3xl font-bold text-white mb-4">中学生</h3>
+                        <p class="text-lg text-gray-200">定期テスト対策、高校受験対策、苦手克服、得意伸長。</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
+                            <li>英語</li>
+                            <li>数学</li>
+                            <li>国語</li>
+                            <li>理科</li>
+                            <li>社会</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-700 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                        <h3 class="text-3xl font-bold text-white mb-4">高校生</h3>
+                        <p class="text-lg text-gray-200">大学受験対策、学校補習、推薦対策、英検対策。</p>
+                        <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
+                            <li>英語</li>
+                            <li>数学I・A・II・B・III</li>
+                            <li>物理</li>
+                            <li>化学</li>
+                            <li>生物</li>
+                            <li>国語（現代文・古文・漢文）</li>
+                            <li>日本史・世界史・地理・倫理・政経</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 md:py-32 bg-gray-900 fade-in-section">
+            <div class="container">
+                <h2 class="section-title">料金プラン</h2>
+                <p class="text-center text-xl text-gray-300 mb-12">
+                    生徒一人ひとりの学習ニーズに合わせた、柔軟な料金プランをご用意しています。<br>
+                    無料学習相談にて、最適なプランをご提案いたします。
+                </p>
+
+                <div class="overflow-x-auto rounded-xl shadow-2xl border border-indigo-700">
+                    <table class="w-full text-left whitespace-nowrap bg-gray-800 rounded-xl">
+                        <thead class="bg-indigo-700 text-white text-lg font-semibold">
+                            <tr>
+                                <th class="py-5 px-6 rounded-tl-xl">学年区分</th>
+                                <th class="py-5 px-6">月4回コース（週1回）</th>
+                                <th class="py-5 px-6 rounded-tr-xl">月8回コース（週2回）</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700 hover:bg-gray-700 transition-colors duration-200">
+                                <td class="py-4 px-6 text-yellow-300 font-semibold">小学生 (1コマ80分)</td>
+                                <td class="py-4 px-6">¥20,000〜¥25,000</td>
+                                <td class="py-4 px-6">¥38,000〜¥48,000</td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-700 transition-colors duration-200">
+                                <td class="py-4 px-6 text-yellow-300 font-semibold">中学生 (1コマ80分)</td>
+                                <td class="py-4 px-6">¥25,000〜¥30,000</td>
+                                <td class="py-4 px-6">¥48,000〜¥58,000</td>
+                            </tr>
+                            <tr class="hover:bg-gray-700 transition-colors duration-200">
+                                <td class="py-4 px-6 text-yellow-300 font-semibold">高校生 (1コマ90分)</td>
+                                <td class="py-4 px-6">¥30,000〜¥35,000</td>
+                                <td class="py-4 px-6">¥58,000〜¥68,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-12 p-8 bg-gray-800 rounded-2xl shadow-xl border border-indigo-600 text-center">
+                    <h3 class="text-2xl font-bold text-white mb-5">その他費用</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-300 mx-auto max-w-lg text-left space-y-2">
+                        <li>**入塾金**: ¥20,000〜¥30,000 (初回のみ)</li>
+                        <li>**教材費**: 実費 (市販教材、オリジナル教材など)</li>
+                        <li>**諸経費**: ¥2,000〜¥3,000/月 (設備維持費、テスト代など)</li>
+                        <li>**季節講習**: 春期、夏期、冬期講習は別途料金</li>
+                    </ul>
+                    <p class="text-2xl text-indigo-300 mt-8 font-semibold drop-shadow-sm">
+                        <span class="text-yellow-300">💡</span> 兄弟割引、多回数受講割引もございます。詳しくはお問い合わせください。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access Section -->
+        <section id="access" class="py-20 md:py-32 bg-gray-800 fade-in-section">
+            <div class="container text-center">
+                <h2 class="section-title">アクセス</h2>
+                <div class="bg-gray-700 p-8 rounded-2xl shadow-xl border border-purple-500 max-w-2xl mx-auto">
+                    <p class="text-xl font-semibold text-white mb-4">個別指導塾 エバラボ</p>
+                    <p class="text-lg text-gray-300 mb-2">〒565-0824 大阪府吹田市山田西XXXX-XX (架空の住所)</p>
+                    <p class="text-lg text-gray-300 mb-4">〇〇駅より徒歩5分</p>
+                    <div class="w-full h-72 bg-gray-600 rounded-lg flex items-center justify-center text-gray-400 text-xl font-semibold mb-4 overflow-hidden">
+                        <!-- Placeholder for Google Maps embed -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278.435777490214!2d135.500858715232!3d34.78912388040685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e30953ee27e9%3A0xf6a81d7d23a41e6a!2z5ZWG5bqV5biC6LGG5bO25Yy6!5e0!3m2!1sja!2sjp!4v1687158000000!5m2!1sja!2sjp"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="text-md text-gray-400 mt-4">※詳細な所在地はお問い合わせ時にご案内いたします。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 bg-gray-900 fade-in-section">
+            <div class="container text-center">
+                <h2 class="section-title">お問い合わせ</h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    無料学習相談、体験授業のお申し込み、その他ご質問など、お気軽にお問い合わせください。<br>
+                    以下のフォームまたはお電話にてご連絡いただけます。
+                </p>
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl border border-indigo-700 max-w-xl mx-auto">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-lg font-medium text-white text-left mb-2">お名前 <span class="text-red-400">*</span></label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-lg font-medium text-white text-left mb-2">メールアドレス <span class="text-red-400">*</span></label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-lg font-medium text-white text-left mb-2">電話番号</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-lg font-medium text-white text-left mb-2">お問い合わせ内容 <span class="text-red-400">*</span></label>
+                            <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-4 px-6 rounded-full text-xl shadow-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 active:scale-95">
+                            送信する
+                        </button>
+                    </form>
+                    <p class="text-2xl text-yellow-300 mt-8 font-semibold">
+                        またはお電話でどうぞ: <a href="tel:06-XXXX-XXXX" class="underline hover:text-yellow-400 transition-colors duration-200">06-XXXX-XXXX</a>
+                    </p>
+                    <p class="text-md text-gray-400 mt-4">受付時間: 平日 14:00 - 21:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 bg-opacity-80 backdrop-blur-sm py-8 text-center text-gray-400 rounded-t-xl border-t border-indigo-700">
+        <div class="container">
+            <p>&copy; 2025 個別指導塾 エバラボ. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-white transition-colors duration-300">プライバシーポリシー</a>
+                <a href="#" class="hover:text-white transition-colors duration-300">サイトマップ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in-section
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of the section must be visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        fadeInSections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Simple smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Placeholder for dynamic star creation if desired
+        // function createStar() {
+        //     const star = document.createElement('div');
+        //     star.classList.add('absolute', 'bg-white', 'rounded-full', 'opacity-70', 'star');
+        //     const size = Math.random() * 3 + 1; // 1px to 4px
+        //     star.style.width = `${size}px`;
+        //     star.style.height = `${size}px`;
+        //     star.style.top = `${Math.random() * 100}%`;
+        //     star.style.left = `${Math.random() * 100}%`;
+        //     star.style.animation = `twinkling ${Math.random() * 3 + 2}s infinite ${Math.random() > 0.5 ? 'alternate' : 'reverse'}`;
+        //     document.querySelector('.hero-background .overflow-hidden').appendChild(star);
+        // }
+        // For larger number of stars:
+        // for (let i = 0; i < 50; i++) {
+        //     createStar();
+        // }
+    </script>
+</body>
+</html>
