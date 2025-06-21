@@ -53,13 +53,15 @@
         }
         /* More dynamic star background for hero */
         .hero-background {
-            background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236b7280' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 0h1v1H0zm2 2h1v1H2zm4 4h1v1H6zm2 2h1v1H8zm-4 4h1v1H4zm2-2h1v1H6zm4-4h1v1h-1zm-2-2h1v1H8zm-6 4h1v1H2zm2-2h1v1H4zm6 0h1v1h-1zm2 2h1v1h-1zm0-4h1v1h-1zm0-8h1v1h-1zm-4 0h1v1h-1zm-8 0h1v1H0zm4 2h1v1H4zm0 4h1v1H4zm-4 4h1v1H0zm8 0h1v1H8zm-4 2h1v1H4zm-2-2h1v1H2zm-2-2h1v1H0z'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 24px 24px;
+            background-image: url("https://placehold.co/1920x1080/0f172a/6b7280?text=Universe+Background"); /* Placeholder for universe image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             animation: starryBackground 60s linear infinite; /* Slow, continuous scroll */
         }
 
         @keyframes starryBackground {
-            from { background-position: 0 0; }
+            from { background-position: 0% 0%; }
             to { background-position: 100% 100%; }
         }
 
@@ -79,6 +81,25 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Back-to-top button */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #818cf8; /* Light purple */
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: none; /* Hidden by default */
+            transition: background-color 0.3s, transform 0.2s;
+            z-index: 1000;
+        }
+        #back-to-top:hover {
+            background-color: #6366f1; /* Darker purple */
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -93,7 +114,9 @@
             </div>
             <nav>
                 <ul class="flex space-x-6 text-lg font-medium">
-                    <li><a href="#concept" class="hover:text-yellow-300 transition-colors duration-300">コンセプト</a></li>
+                    <li><a href="#about" class="hover:text-yellow-300 transition-colors duration-300">エバラボとは</a></li>
+                    <li><a href="#strengths" class="hover:text-yellow-300 transition-colors duration-300">エバラボの強み</a></li>
+                    <li><a href="#concept" class="hover:text-yellow-300 transition-colors duration-300">指導コンセプト</a></li>
                     <li><a href="#courses" class="hover:text-yellow-300 transition-colors duration-300">対象学年</a></li>
                     <li><a href="#pricing" class="hover:text-yellow-300 transition-colors duration-300">料金</a></li>
                     <li><a href="#access" class="hover:text-yellow-300 transition-colors duration-300">アクセス</a></li>
@@ -134,23 +157,61 @@
         <!-- About Section -->
         <section id="about" class="py-20 md:py-32 bg-gray-800 fade-in-section">
             <div class="container text-center">
-                <h2 class="section-title">エバラボが目指すもの</h2>
-                <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-300">
-                    エバラボは、生徒一人ひとりが持つ「無限の可能性」を信じています。
-                    私たちは、単に成績を上げるだけでなく、自ら考え、行動し、未来を切り開く力を育むことを使命としています。
-                    まるで宇宙の星々がそれぞれ異なる輝きを放つように、
-                    君だけの才能をエバラボで見つけ、最大限に輝かせましょう。
-                </p>
+                <h2 class="section-title">エバラボとは</h2>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <img src="https://placehold.co/800x450/4f46e5/ffffff?text=Students+Learning" alt="個別指導で学習する生徒のイメージ" class="mx-auto rounded-xl shadow-lg border border-indigo-500">
+                    </div>
+                    <div>
+                        <p class="text-lg md:text-xl leading-relaxed text-gray-300 text-left">
+                            エバラボは、大阪で小・中・高校生を対象とした個別指導塾です。
+                            私たちは、画一的な指導ではなく、生徒一人ひとりの学習スタイル、個性、目標に合わせたオーダーメイドのカリキュラムを提供しています。
+                            学習への意欲を引き出し、自ら課題を解決する力を育むことで、単なる成績向上に留まらない「生きる力」を養うことを目指します。
+                            まるで未知の惑星を探求するように、君だけの学習の旅をエバラボで始めましょう。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strengths Section (New) -->
+        <section id="strengths" class="py-20 md:py-32 bg-gray-900 fade-in-section">
+            <div class="container text-center">
+                <h2 class="section-title">エバラボの３つの強み</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-gray-800 rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-yellow-700 transform hover:scale-102 transition-transform duration-300">
+                        <img src="https://placehold.co/150x150/facc15/333333?text=Custom+Curriculum" alt="個別最適化カリキュラムのアイコン" class="rounded-full shadow-lg mb-6 border-4 border-yellow-400">
+                        <h3 class="text-2xl font-bold text-white mb-3">１．完全個別最適化カリキュラム</h3>
+                        <p class="text-md text-gray-300 leading-relaxed">
+                            生徒の学力、理解度、進度、目標を詳細に分析し、一人ひとりに最適な学習計画と教材を選定。無駄なく効率的な学習で、着実に目標達成を目指します。
+                        </p>
+                    </div>
+                    <div class="bg-gray-800 rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-yellow-700 transform hover:scale-102 transition-transform duration-300">
+                        <img src="https://placehold.co/150x150/34d399/333333?text=Expert+Teachers" alt="経験豊富な講師陣のアイコン" class="rounded-full shadow-lg mb-6 border-4 border-green-400">
+                        <h3 class="text-2xl font-bold text-white mb-3">２．経験豊富なプロ講師陣</h3>
+                        <p class="text-md text-gray-300 leading-relaxed">
+                            難関校合格実績や指導経験豊富なプロ講師が多数在籍。生徒の特性を見抜き、寄り添いながら、時に厳しく、的確な指導を行います。
+                        </p>
+                    </div>
+                    <div class="bg-gray-800 rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-yellow-700 transform hover:scale-102 transition-transform duration-300">
+                        <img src="https://placehold.co/150x150/60a5fa/333333?text=Holistic+Support" alt="学習コーチングと進路相談のアイコン" class="rounded-full shadow-lg mb-6 border-4 border-blue-400">
+                        <h3 class="text-2xl font-bold text-white mb-3">３．徹底した学習コーチング</h3>
+                        <p class="text-md text-gray-300 leading-relaxed">
+                            教科指導だけでなく、学習計画の立案から実行、振り返りまでをサポート。自立学習の習慣を身につけさせ、受験対策だけでなく、その先の未来を見据えます。
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Concept Section -->
-        <section id="concept" class="py-20 md:py-32 bg-gray-900 fade-in-section">
+        <section id="concept" class="py-20 md:py-32 bg-gray-800 fade-in-section">
             <div class="container">
                 <h2 class="section-title">エバラボの指導コンセプト</h2>
                 <div class="grid md:grid-cols-2 gap-10">
                     <!-- Concept 1 -->
-                    <div class="bg-gray-800 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
+                    <div class="bg-gray-900 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
+                        <img src="https://placehold.co/400x250/22c55e/ffffff?text=Weakness+Overcome" alt="弱点克服と得意伸長のイメージ" class="rounded-lg shadow-md mb-6 border border-green-500">
                         <div class="text-6xl text-yellow-400 mb-6 drop-shadow-md">🚀</div> <!-- Rocket emoji -->
                         <h3 class="text-3xl font-bold text-white mb-4">徹底した「弱点克服」と「得意伸長」</h3>
                         <p class="text-lg text-gray-300 leading-relaxed">
@@ -158,7 +219,8 @@
                         </p>
                     </div>
                     <!-- Concept 2 -->
-                    <div class="bg-gray-800 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
+                    <div class="bg-gray-900 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
+                        <img src="https://placehold.co/400x250/fde047/333333?text=Self-Study+Coaching" alt="自立学習のイメージ" class="rounded-lg shadow-md mb-6 border border-yellow-300">
                         <div class="text-6xl text-green-400 mb-6 drop-shadow-md">💡</div> <!-- Lightbulb emoji -->
                         <h3 class="text-3xl font-bold text-white mb-4">「自立学習」を育むコーチング型指導</h3>
                         <p class="text-lg text-gray-300 leading-relaxed">
@@ -170,11 +232,12 @@
         </section>
 
         <!-- Courses Section -->
-        <section id="courses" class="py-20 md:py-32 bg-gray-800 fade-in-section">
+        <section id="courses" class="py-20 md:py-32 bg-gray-900 fade-in-section">
             <div class="container text-center">
                 <h2 class="section-title">対象学年と指導科目</h2>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-gray-700 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                        <img src="https://placehold.co/300x200/5b21b6/ffffff?text=Elementary+Student" alt="小学生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400">
                         <h3 class="text-3xl font-bold text-white mb-4">小学生</h3>
                         <p class="text-lg text-gray-200">基礎学力の定着、学習習慣の確立、中学受験準備。</p>
                         <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
@@ -184,7 +247,8 @@
                             <li>社会</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-700 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                        <img src="https://placehold.co/300x200/8b5cf6/ffffff?text=Junior+High+Student" alt="中学生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400">
                         <h3 class="text-3xl font-bold text-white mb-4">中学生</h3>
                         <p class="text-lg text-gray-200">定期テスト対策、高校受験対策、苦手克服、得意伸長。</p>
                         <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
@@ -195,7 +259,8 @@
                             <li>社会</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-700 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                    <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
+                        <img src="https://placehold.co/300x200/c084fc/ffffff?text=High+School+Student" alt="高校生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400">
                         <h3 class="text-3xl font-bold text-white mb-4">高校生</h3>
                         <p class="text-lg text-gray-200">大学受験対策、学校補習、推薦対策、英検対策。</p>
                         <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
@@ -335,6 +400,11 @@
         </div>
     </footer>
 
+    <!-- Back-to-top button -->
+    <button id="back-to-top" class="focus:outline-none">
+        ↑ TOP
+    </button>
+
     <script>
         // Intersection Observer for fade-in-section
         const fadeInSections = document.querySelectorAll('.fade-in-section');
@@ -358,7 +428,7 @@
             observer.observe(section);
         });
 
-        // Simple smooth scroll for navigation links
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -368,22 +438,23 @@
             });
         });
 
-        // Placeholder for dynamic star creation if desired
-        // function createStar() {
-        //     const star = document.createElement('div');
-        //     star.classList.add('absolute', 'bg-white', 'rounded-full', 'opacity-70', 'star');
-        //     const size = Math.random() * 3 + 1; // 1px to 4px
-        //     star.style.width = `${size}px`;
-        //     star.style.height = `${size}px`;
-        //     star.style.top = `${Math.random() * 100}%`;
-        //     star.style.left = `${Math.random() * 100}%`;
-        //     star.style.animation = `twinkling ${Math.random() * 3 + 2}s infinite ${Math.random() > 0.5 ? 'alternate' : 'reverse'}`;
-        //     document.querySelector('.hero-background .overflow-hidden').appendChild(star);
-        // }
-        // For larger number of stars:
-        // for (let i = 0; i < 50; i++) {
-        //     createStar();
-        // }
+        // Back-to-top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) { // Show button after scrolling 300px
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
