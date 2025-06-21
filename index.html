@@ -6,11 +6,11 @@
     <title>個別指導塾 エバラボ - 君の可能性を宇宙のように広げよう</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Noto Sans JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Noto Sans JP', sans-serif;
             background: linear-gradient(180deg, #0f172a 0%, #1a202c 100%); /* Deep space gradient */
             color: #e2e8f0; /* Light gray text */
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
@@ -53,7 +53,8 @@
         }
         /* More dynamic star background for hero */
         .hero-background {
-            background-image: url("https://placehold.co/1920x1080/0f172a/6b7280?text=Universe+Background"); /* Placeholder for universe image */
+            /* Placeholder for universe image */
+            background-image: url("https://placehold.co/1920x1080/0f172a/6b7280");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -100,6 +101,35 @@
             background-color: #6366f1; /* Darker purple */
             transform: scale(1.05);
         }
+
+        /* Mobile menu specific styles */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 990;
+            display: none; /* Hidden by default */
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Start off-screen */
+            width: 80%; /* Width of the menu */
+            max-width: 300px;
+            height: 100%;
+            background-color: #1a202c; /* Dark background */
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+        }
+        .mobile-menu.is-open {
+            right: 0; /* Slide in */
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -112,7 +142,8 @@
                 </svg>
                 エバラボ
             </div>
-            <nav>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
                 <ul class="flex space-x-6 text-lg font-medium">
                     <li><a href="#about" class="hover:text-yellow-300 transition-colors duration-300">エバラボとは</a></li>
                     <li><a href="#strengths" class="hover:text-yellow-300 transition-colors duration-300">エバラボの強み</a></li>
@@ -123,8 +154,39 @@
                     <li><a href="#contact" class="hover:text-yellow-300 transition-colors duration-300 bg-indigo-600 px-5 py-2.5 rounded-full hover:bg-indigo-700 transition-all duration-300 shadow-md">お問い合わせ</a></li>
                 </ul>
             </nav>
+            <!-- Mobile Hamburger Icon -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="flex justify-end mb-8">
+            <button id="close-mobile-menu" class="p-2 rounded-md text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav>
+            <ul class="flex flex-col space-y-6 text-xl font-medium">
+                <li><a href="#about" class="block py-2 hover:text-yellow-300 transition-colors duration-300">エバラボとは</a></li>
+                <li><a href="#strengths" class="block py-2 hover:text-yellow-300 transition-colors duration-300">エバラボの強み</a></li>
+                <li><a href="#concept" class="block py-2 hover:text-yellow-300 transition-colors duration-300">指導コンセプト</a></li>
+                <li><a href="#courses" class="block py-2 hover:text-yellow-300 transition-colors duration-300">対象学年</a></li>
+                <li><a href="#pricing" class="block py-2 hover:text-yellow-300 transition-colors duration-300">料金</a></li>
+                <li><a href="#access" class="block py-2 hover:text-yellow-300 transition-colors duration-300">アクセス</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-yellow-300 transition-colors duration-300">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </div>
 
     <main class="pt-24">
         <!-- Hero Section -->
@@ -160,7 +222,8 @@
                 <h2 class="section-title">エバラボとは</h2>
                 <div class="grid md:grid-cols-2 gap-10 items-center">
                     <div>
-                        <img src="https://placehold.co/800x450/4f46e5/ffffff?text=Students+Learning" alt="個別指導で学習する生徒のイメージ" class="mx-auto rounded-xl shadow-lg border border-indigo-500">
+                        <!-- Image of students learning -->
+                        <img src="https://placehold.co/800x450/4f46e5/ffffff" alt="個別指導で学習する生徒のイメージ" class="mx-auto rounded-xl shadow-lg border border-indigo-500 max-w-full h-auto">
                     </div>
                     <div>
                         <p class="text-lg md:text-xl leading-relaxed text-gray-300 text-left">
@@ -174,30 +237,33 @@
             </div>
         </section>
 
-        <!-- Strengths Section (New) -->
+        <!-- Strengths Section -->
         <section id="strengths" class="py-20 md:py-32 bg-gray-900 fade-in-section">
             <div class="container text-center">
                 <h2 class="section-title">エバラボの３つの強み</h2>
-                <div class="grid md:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10"> <!-- Adjusted for mobile: 1 column on small screens -->
                     <div class="bg-gray-800 rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-yellow-700 transform hover:scale-102 transition-transform duration-300">
-                        <img src="https://placehold.co/150x150/facc15/333333?text=Custom+Curriculum" alt="個別最適化カリキュラムのアイコン" class="rounded-full shadow-lg mb-6 border-4 border-yellow-400">
+                        <!-- Image of Custom Curriculum Icon -->
+                        <img src="https://placehold.co/150x150/facc15/333333" alt="個別最適化カリキュラムのアイコン" class="rounded-full shadow-lg mb-6 border-4 border-yellow-400 max-w-full h-auto">
                         <h3 class="text-2xl font-bold text-white mb-3">１．完全個別最適化カリキュラム</h3>
                         <p class="text-md text-gray-300 leading-relaxed">
-                            生徒の学力、理解度、進度、目標を詳細に分析し、一人ひとりに最適な学習計画と教材を選定。無駄なく効率的な学習で、着実に目標達成を目指します。
+                            生徒一人ひとりの学力、理解度、進度、そして将来の目標を徹底的に分析します。その上で、最も効果的な学習計画と厳選された教材を組み合わせた、あなただけのオーダーメイドカリキュラムを作成。無駄なく、そして着実に目標達成へと導きます。
                         </p>
                     </div>
                     <div class="bg-gray-800 rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-yellow-700 transform hover:scale-102 transition-transform duration-300">
-                        <img src="https://placehold.co/150x150/34d399/333333?text=Expert+Teachers" alt="経験豊富な講師陣のアイコン" class="rounded-full shadow-lg mb-6 border-4 border-green-400">
+                        <!-- Image of Expert Teachers Icon -->
+                        <img src="https://placehold.co/150x150/34d399/333333" alt="経験豊富な講師陣のアイコン" class="rounded-full shadow-lg mb-6 border-4 border-green-400 max-w-full h-auto">
                         <h3 class="text-2xl font-bold text-white mb-3">２．経験豊富なプロ講師陣</h3>
                         <p class="text-md text-gray-300 leading-relaxed">
-                            難関校合格実績や指導経験豊富なプロ講師が多数在籍。生徒の特性を見抜き、寄り添いながら、時に厳しく、的確な指導を行います。
+                            エバラボには、数々の難関校合格を導き、生徒の可能性を最大限に引き出してきた経験豊富なプロ講師が揃っています。一人ひとりの個性や学習スタイルを深く理解し、単に知識を教えるだけでなく、生徒に寄り添いながら、時には厳しく、常に最適なアドバイスで成長をサポートします。
                         </p>
                     </div>
                     <div class="bg-gray-800 rounded-3xl shadow-2xl p-8 flex flex-col items-center text-center border border-yellow-700 transform hover:scale-102 transition-transform duration-300">
-                        <img src="https://placehold.co/150x150/60a5fa/333333?text=Holistic+Support" alt="学習コーチングと進路相談のアイコン" class="rounded-full shadow-lg mb-6 border-4 border-blue-400">
+                        <!-- Image of Holistic Support Icon -->
+                        <img src="https://placehold.co/150x150/60a5fa/333333" alt="学習コーチングと進路相談のアイコン" class="rounded-full shadow-lg mb-6 border-4 border-blue-400 max-w-full h-auto">
                         <h3 class="text-2xl font-bold text-white mb-3">３．徹底した学習コーチング</h3>
                         <p class="text-md text-gray-300 leading-relaxed">
-                            教科指導だけでなく、学習計画の立案から実行、振り返りまでをサポート。自立学習の習慣を身につけさせ、受験対策だけでなく、その先の未来を見据えます。
+                            私たちは単に科目を教えるだけでなく、生徒が「自分で学ぶ力」を育むことを重視しています。日々の学習計画の立て方から、効果的な実行方法、そして学習内容の振り返りまで、きめ細やかな学習コーチングを提供。受験のその先を見据え、社会で役立つ「自立して考える力」を養います。
                         </p>
                     </div>
                 </div>
@@ -208,10 +274,11 @@
         <section id="concept" class="py-20 md:py-32 bg-gray-800 fade-in-section">
             <div class="container">
                 <h2 class="section-title">エバラボの指導コンセプト</h2>
-                <div class="grid md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10"> <!-- Adjusted for mobile: 1 column on small screens -->
                     <!-- Concept 1 -->
                     <div class="bg-gray-900 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
-                        <img src="https://placehold.co/400x250/22c55e/ffffff?text=Weakness+Overcome" alt="弱点克服と得意伸長のイメージ" class="rounded-lg shadow-md mb-6 border border-green-500">
+                        <!-- Image of Weakness Overcome -->
+                        <img src="https://placehold.co/400x250/22c55e/ffffff" alt="弱点克服と得意伸長のイメージ" class="rounded-lg shadow-md mb-6 border border-green-500 max-w-full h-auto">
                         <div class="text-6xl text-yellow-400 mb-6 drop-shadow-md">🚀</div> <!-- Rocket emoji -->
                         <h3 class="text-3xl font-bold text-white mb-4">徹底した「弱点克服」と「得意伸長」</h3>
                         <p class="text-lg text-gray-300 leading-relaxed">
@@ -220,7 +287,8 @@
                     </div>
                     <!-- Concept 2 -->
                     <div class="bg-gray-900 rounded-3xl shadow-2xl p-10 flex flex-col items-center text-center border border-indigo-700 transform hover:scale-102 transition-transform duration-300 cursor-pointer">
-                        <img src="https://placehold.co/400x250/fde047/333333?text=Self-Study+Coaching" alt="自立学習のイメージ" class="rounded-lg shadow-md mb-6 border border-yellow-300">
+                        <!-- Image of Self-Study Coaching -->
+                        <img src="https://placehold.co/400x250/fde047/333333" alt="自立学習のイメージ" class="rounded-lg shadow-md mb-6 border border-yellow-300 max-w-full h-auto">
                         <div class="text-6xl text-green-400 mb-6 drop-shadow-md">💡</div> <!-- Lightbulb emoji -->
                         <h3 class="text-3xl font-bold text-white mb-4">「自立学習」を育むコーチング型指導</h3>
                         <p class="text-lg text-gray-300 leading-relaxed">
@@ -235,9 +303,10 @@
         <section id="courses" class="py-20 md:py-32 bg-gray-900 fade-in-section">
             <div class="container text-center">
                 <h2 class="section-title">対象学年と指導科目</h2>
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <!-- Adjusted for mobile: 1 column on small screens -->
                     <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
-                        <img src="https://placehold.co/300x200/5b21b6/ffffff?text=Elementary+Student" alt="小学生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400">
+                        <!-- Image of Elementary Student -->
+                        <img src="https://placehold.co/300x200/5b21b6/ffffff" alt="小学生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400 max-w-full h-auto">
                         <h3 class="text-3xl font-bold text-white mb-4">小学生</h3>
                         <p class="text-lg text-gray-200">基礎学力の定着、学習習慣の確立、中学受験準備。</p>
                         <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
@@ -248,7 +317,8 @@
                         </ul>
                     </div>
                     <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
-                        <img src="https://placehold.co/300x200/8b5cf6/ffffff?text=Junior+High+Student" alt="中学生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400">
+                        <!-- Image of Junior High Student -->
+                        <img src="https://placehold.co/300x200/8b5cf6/ffffff" alt="中学生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400 max-w-full h-auto">
                         <h3 class="text-3xl font-bold text-white mb-4">中学生</h3>
                         <p class="text-lg text-gray-200">定期テスト対策、高校受験対策、苦手克服、得意伸長。</p>
                         <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
@@ -260,7 +330,8 @@
                         </ul>
                     </div>
                     <div class="bg-gray-800 p-8 rounded-2xl shadow-xl border border-purple-500 hover:shadow-2xl transition-shadow duration-300 transform hover:scale-102 cursor-pointer">
-                        <img src="https://placehold.co/300x200/c084fc/ffffff?text=High+School+Student" alt="高校生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400">
+                        <!-- Image of High School Student -->
+                        <img src="https://placehold.co/300x200/c084fc/ffffff" alt="高校生のイメージ" class="rounded-lg shadow-md mb-6 border border-purple-400 max-w-full h-auto">
                         <h3 class="text-3xl font-bold text-white mb-4">高校生</h3>
                         <p class="text-lg text-gray-200">大学受験対策、学校補習、推薦対策、英検対策。</p>
                         <ul class="list-disc list-inside text-gray-300 mt-4 text-left mx-auto max-w-xs space-y-1">
@@ -453,6 +524,36 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('is-open');
+            mobileMenuOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling body
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('is-open');
+            mobileMenuOverlay.style.display = 'none';
+            document.body.style.overflow = ''; // Allow body scrolling
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu); // Close when clicking overlay
+
+        // Close mobile menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(closeMobileMenu, 300); // Close after a short delay for smooth scroll
             });
         });
     </script>
